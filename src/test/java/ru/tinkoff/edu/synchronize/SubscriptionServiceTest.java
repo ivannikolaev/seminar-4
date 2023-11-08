@@ -1,4 +1,4 @@
-package ru.tinkoff.edu.edu;
+package ru.tinkoff.edu.synchronize;
 
 import org.junit.jupiter.api.Test;
 import ru.tinkoff.edu.synchronize.SubscriptionServiceOrderedSynchronizedBlock;

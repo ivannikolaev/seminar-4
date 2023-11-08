@@ -1,12 +1,8 @@
-package ru.tinkoff.edu;
+package ru.tinkoff.edu.non_blocking;
 
 import org.junit.jupiter.api.RepeatedTest;
-import ru.tinkoff.edu.non_blocking.AtomicRateLimiter;
 
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -43,5 +39,4 @@ class RateLimiterTest {
         executor.awaitTermination(1, TimeUnit.SECONDS);
         assertEquals(limitPerSecond, succeededThreads);
     }
-
 }
