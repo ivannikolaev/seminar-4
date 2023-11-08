@@ -11,33 +11,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <lombok.version>1.18.24</lombok.version>
-        <jmh.version>1.35</jmh.version>
     </properties>
 
     <dependencies>
-
-        <dependency>
-            <groupId>org.jsoup</groupId>
-            <artifactId>jsoup</artifactId>
-            <version>1.16.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>2.0.9</version>
-        </dependency>
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.4.7</version>
-        </dependency>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-        </dependency>
-
 
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -56,18 +32,6 @@
                 <configuration>
                     <source>17</source>
                     <target>17</target>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
-                        </path>
-                        <path>
-                            <groupId>org.openjdk.jmh</groupId>
-                            <artifactId>jmh-generator-annprocess</artifactId>
-                            <version>${jmh.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
         </plugins>
@@ -75,22 +39,9 @@
 
     <repositories>
         <repository>
-            <id>tcs-central</id>
-            <url>https://nexus.tcsbank.ru/repository/mvn-maven-proxy</url>
-        </repository>
-        <repository>
-            <id>esb</id>
-            <name>ESB Repository</name>
-            <url>https://nexus.tcsbank.ru/repository/mvn-tap</url>
-        </repository>
-        <repository>
             <id>tinkoff-maven-releases-hosted</id>
             <name>tinkoff-maven-releases-hosted</name>
-            <url>https://artifactory.tcsbank.ru/artifactory/maven-releases-hosted</url>
-        </repository>
-        <repository>
-            <id>mvn-jvm-core</id>
-            <url>https://nexus.tcsbank.ru/repository/mvn-jvm-core</url>
+            <url>https://artifactory.tcsbank.ru/artifactory/maven-all</url>
         </repository>
     </repositories>
 
