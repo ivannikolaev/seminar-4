@@ -22,7 +22,7 @@ class ConcurrentLoadingCacheTest {
         var executor = Executors.newFixedThreadPool(10);
         // when
         CompletableFuture.allOf(IntStream.range(0, 10)
-                .mapToObj(i -> CompletableFuture.runAsync(() -> cache.get("123")))
+                .mapToObj(i -> CompletableFuture.runAsync(() -> cache.get("123"), executor))
                 .toArray(CompletableFuture[]::new)).get(1, TimeUnit.SECONDS);
         // then
         assertEquals(1, invocationCount.get());
