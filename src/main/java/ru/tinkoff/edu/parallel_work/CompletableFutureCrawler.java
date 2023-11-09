@@ -10,16 +10,16 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.Consumer;
 
-public class MultiThreadedCrawler {
+public class CompletableFutureCrawler {
 
     private ExecutorService executor;
 
-    public MultiThreadedCrawler(ExecutorService executor) {
+    public CompletableFutureCrawler(ExecutorService executor) {
         this.executor = executor;
     }
 
-    public static MultiThreadedCrawler ofThreads(int threadCount) {
-        return new MultiThreadedCrawler(Executors.newFixedThreadPool(threadCount));
+    public static CompletableFutureCrawler ofThreads(int threadCount) {
+        return new CompletableFutureCrawler(Executors.newFixedThreadPool(threadCount));
     }
 
     public void crawl(List<String> urls, Consumer<String> sink) {

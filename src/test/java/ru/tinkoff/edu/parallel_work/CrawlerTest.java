@@ -61,9 +61,22 @@ class CrawlerTest {
     }
 
     @Test
-    void multiThreaded() throws InterruptedException {
+    void completableFuture() throws InterruptedException {
         // given
-        var crawler = MultiThreadedCrawler.ofThreads(3);
+        var crawler = CompletableFutureCrawler.ofThreads(3);
+        var latch = new CountDownLatch(urls.size());
+        // when
+        var start = System.currentTimeMillis();
+        crawler.crawl(new CopyOnWriteArrayList<>(this.urls), (content) -> latch.countDown());
+        // then
+        latch.await(15, TimeUnit.SECONDS);
+        log.info("time passed: " + (System.currentTimeMillis() - start));
+    }
+
+    @Test
+    void executor() throws InterruptedException {
+        // given
+        var crawler = ExecutorCrawler.ofThreads(3);
         var latch = new CountDownLatch(urls.size());
         // when
         var start = System.currentTimeMillis();
